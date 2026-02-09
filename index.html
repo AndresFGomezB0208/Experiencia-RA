@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WebAR Experience</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Import A-Frame -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <!-- Import AR.js -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+    <!-- AR Scene -->
+    <a-scene embedded arjs>
+
+        <!-- HIRO Marker -->
+        <a-marker preset="hiro">
+
+            <!-- Rotating Cube -->
+            <a-box position="0 0.5 0" material="src: url(assets/texture.svg); opacity: 0.9; transparent: true;"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
+            </a-box>
+
+            <!-- 3D Text "Hola equipo!" -->
+            <a-text value="Hola equipo!" position="0 1.5 0" rotation="-90 0 0" color="red" scale="2 2 2" align="center">
+            </a-text>
+
+        </a-marker>
+
+        <!-- Camera -->
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+
+</html>
