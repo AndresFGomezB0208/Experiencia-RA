@@ -15,20 +15,23 @@
 <body style="margin: 0; overflow: hidden;">
     <!-- AR Scene -->
     <!-- Reverting to default configuration which is most compatible -->
-    <a-scene embedded arjs>
+    <!-- AR Scene -->
+    <!-- Added renderer settings for better color/transparency (might fix eyes) -->
+    <!-- Reverting to default configuration which is most compatible -->
+    <a-scene embedded arjs renderer="logarithmicDepthBuffer: true; colorManagement: true;">
 
         <!-- Assets Management -->
         <a-assets>
             <!-- Added version query to force cache refresh -->
-            <a-asset-item id="morgana" src="assets/morgana_emperatriz_majestuosa_chibi.glb?v=5"></a-asset-item>
+            <a-asset-item id="morgana" src="assets/morgana_emperatriz_majestuosa_chibi.glb?v=6"></a-asset-item>
         </a-assets>
 
         <!-- HIRO Marker -->
         <!-- Reverting to default configuration which is most compatible -->
         <a-marker preset="hiro">
 
-            <!-- Wrapper for X-axis rotation as requested -->
-            <a-entity rotation="90 0 0">
+            <!-- Wrapper for rotation: 90 X (face camera) + 180 Y (flip around vertical axis as requested) -->
+            <a-entity rotation="90 180 0">
                 <!-- GLB Model with internal animation AND rotation -->
                 <!-- Scale reduced to 0.005 as requested -->
                 <a-entity gltf-model="#morgana" scale="0.005 0.005 0.005" position="0 0 0" animation-mixer
