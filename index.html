@@ -8,19 +8,26 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <!-- Import AR.js -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <!-- Import A-Frame Extras for GLB Animation -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 </head>
 
 <body style="margin: 0; overflow: hidden;">
     <!-- AR Scene -->
     <a-scene embedded arjs>
 
+        <!-- Assets Management -->
+        <a-assets>
+            <a-asset-item id="morgana" src="assets/morgana_emperatriz_majestuosa_chibi.glb"></a-asset-item>
+        </a-assets>
+
         <!-- HIRO Marker -->
         <a-marker preset="hiro">
 
-            <!-- Rotating Cube -->
-            <a-box position="0 0.5 0" material="src: url(assets/texture.svg); opacity: 0.9; transparent: true;"
-                animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
-            </a-box>
+            <!-- GLB Model with Animation -->
+            <!-- Scale adjusted to 0.5 initially. Position 0 0 0 centers it on the marker. -->
+            <a-entity gltf-model="#morgana" scale="0.5 0.5 0.5" position="0 0 0" animation-mixer>
+            </a-entity>
 
             <!-- 3D Text "Hola equipo!" -->
             <a-text value="Hola equipo!" position="0 1.5 0" rotation="-90 0 0" color="red" scale="2 2 2" align="center">
