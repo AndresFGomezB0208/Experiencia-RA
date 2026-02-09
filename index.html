@@ -18,15 +18,17 @@
 
         <!-- Assets Management -->
         <a-assets>
-            <a-asset-item id="morgana" src="assets/morgana_emperatriz_majestuosa_chibi.glb"></a-asset-item>
+            <!-- Added version query to force cache refresh -->
+            <a-asset-item id="morgana" src="assets/morgana_emperatriz_majestuosa_chibi.glb?v=2"></a-asset-item>
         </a-assets>
 
         <!-- HIRO Marker -->
         <a-marker preset="hiro">
 
-            <!-- GLB Model with Animation -->
-            <!-- Scale reduced to 0.005 to strictly fit within marker boundaries -->
-            <a-entity gltf-model="#morgana" scale="0.005 0.005 0.005" position="0 0 0" animation-mixer>
+            <!-- GLB Model with internal animation AND rotation -->
+            <!-- Scale set to 0.1 (try this value). Added rotation animation from your snippet. -->
+            <a-entity gltf-model="#morgana" scale="0.1 0.1 0.1" position="0 0 0" animation-mixer
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear">
             </a-entity>
 
             <!-- 3D Text "Hola equipo!" -->
